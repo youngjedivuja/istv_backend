@@ -3,6 +3,7 @@ package rs.istv.service.impl;
 import java.util.List;
 import java.util.NoSuchElementException;
 import lombok.*;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import rs.istv.entity.*;
 import rs.istv.repository.UserRepository;
@@ -40,6 +41,12 @@ public  class UserServiceImpl implements UserService {
 	public void deleteById(Integer userId) {
 		userRepository.deleteById(userId);
 	}
+
+    @Override
+    public User findByUsername(String username) {
+		return userRepository.findByUsername(username)
+				.orElseThrow(() -> new UsernameNotFoundException("UserService.usernameNotFound"));
+    }
 
 
 }
