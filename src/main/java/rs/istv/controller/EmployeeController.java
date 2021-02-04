@@ -33,6 +33,11 @@ public class EmployeeController {
 		return ResponseEntity.ok(employeeService.update(employee));
 	}
 
+	@PutMapping("/{employeeId}/toggle")
+	public ResponseEntity<Employee> updateRecordStatus(@PathVariable Integer employeeId) {
+		return ResponseEntity.ok(employeeService.updateRecordStatus(employeeId));
+	}
+
 	@DeleteMapping("/{employeeId}")
 	public void deleteById(@PathVariable Integer employeeId) {
 		employeeService.deleteById(employeeId);

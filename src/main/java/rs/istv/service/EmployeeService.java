@@ -16,4 +16,5 @@ public  interface EmployeeService {
 
 	void deleteById(Integer employeeId);
 
+    Employee updateRecordStatus(Integer employeeId);
 }

@@ -41,5 +41,13 @@ public  class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.deleteById(employeeId);
 	}
 
+	@Override
+	public Employee updateRecordStatus(Integer employeeId) {
+		Employee employee = findById(employeeId);
+		System.out.println(employee);
+		employee.setRecordStatus(employee.getRecordStatus() > 0 ? 0 : 1);
+		return employeeRepository.save(employee);
+	}
+
 
 }
