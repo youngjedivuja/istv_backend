@@ -18,7 +18,7 @@ public  class Buyer extends Auditable {
 	@Column(name = "buyer_id")
 	private Integer id;
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
-	@ManyToOne
+	@OneToOne
 	private User userId;
 	@Column(name = "company_name")
 	private String companyName;

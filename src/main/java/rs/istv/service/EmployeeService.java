@@ -2,6 +2,8 @@ package rs.istv.service;
 
 import java.util.Collection;
 import java.util.List;
+
+import rs.istv.dto.UserPersonEmployeeDTO;
 import rs.istv.entity.*;
 
 public  interface EmployeeService {
@@ -17,4 +19,6 @@ public  interface EmployeeService {
 	void deleteById(Integer employeeId);
 
     Employee updateRecordStatus(Integer employeeId);
+
+    Employee saveUserPersonEmployeeDTO(UserPersonEmployeeDTO userPersonEmployeeDTO);
 }

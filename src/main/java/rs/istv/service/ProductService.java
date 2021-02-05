@@ -16,4 +16,5 @@ public  interface ProductService {
 
 	void deleteById(Integer productId);
 
+    Product updateRecordStatus(Integer productId);
 }

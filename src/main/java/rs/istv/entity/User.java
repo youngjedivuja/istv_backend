@@ -22,6 +22,9 @@ public class User extends Auditable implements UserDetails {
 	@JoinColumn(name = "person_id", referencedColumnName = "person_id")
 	@ManyToOne
 	private Person personId;
+	@OneToOne(mappedBy = "userId")
+	@JsonIgnore
+	private Buyer buyerId;
 	@Column(name = "username")
 	private String username;
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

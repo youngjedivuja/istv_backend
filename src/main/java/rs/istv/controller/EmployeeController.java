@@ -4,6 +4,7 @@ import java.util.List;
 import lombok.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import rs.istv.dto.UserPersonEmployeeDTO;
 import rs.istv.entity.*;
 import rs.istv.service.*;
 
@@ -26,6 +27,16 @@ public class EmployeeController {
 	@PostMapping
 	public ResponseEntity<Employee> save(@RequestBody Employee employee) {
 		return ResponseEntity.status(201).body(employeeService.save(employee));
+	}
+
+	@PostMapping("/saveEmployeeDTO")
+	public ResponseEntity<Employee> saveDTO(@RequestBody UserPersonEmployeeDTO userPersonEmployeeDTO){
+		return ResponseEntity.ok(employeeService.saveUserPersonEmployeeDTO(userPersonEmployeeDTO));
+	}
+
+	@PutMapping("/updateEmployeeDTO")
+	public ResponseEntity<Employee> updateDTO(@RequestBody UserPersonEmployeeDTO userPersonEmployeeDTO){
+		return ResponseEntity.ok(employeeService.saveUserPersonEmployeeDTO(userPersonEmployeeDTO));
 	}
 
 	@PutMapping

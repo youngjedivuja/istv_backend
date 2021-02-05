@@ -25,5 +25,7 @@ public  class Product extends Auditable {
 	private String countryOfOrigin;
 	@Column(name = "storage_quantity")
 	private Integer storageQuantity;
+	@Column(name = "price")
+	private Integer price;
 	
 }

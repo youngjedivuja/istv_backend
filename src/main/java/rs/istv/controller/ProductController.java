@@ -28,6 +28,11 @@ public class ProductController {
 		return ResponseEntity.status(201).body(productService.save(product));
 	}
 
+	@PutMapping("/{productId}/toggle")
+	public ResponseEntity<Product> updateRecordStatus(@PathVariable Integer productId) {
+		return ResponseEntity.ok(productService.updateRecordStatus(productId));
+	}
+
 	@PutMapping
 	public ResponseEntity<Product> update(@RequestBody Product product) {
 		return ResponseEntity.ok(productService.update(product));
