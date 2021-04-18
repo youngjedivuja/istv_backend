@@ -1,6 +1,5 @@
 package rs.istv.service;
 
-import java.util.Collection;
 import java.util.List;
 import rs.istv.entity.*;
 
