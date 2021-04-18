@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 class BuyerServiceTest {
 
     @Mock
-    BuyerRepository buyerRepository;
+    BuyerRepository buyerRepositoryMock;
 
     @InjectMocks
     BuyerServiceImpl buyerService;
@@ -36,7 +36,7 @@ class BuyerServiceTest {
         buyerService.deleteById(1);
 
         //then
-        then(buyerRepository).should().deleteById(1);
+        then(buyerRepositoryMock).should().deleteById(1);
     }
 
     //Testing delete by id method with multiple functions calls
@@ -49,7 +49,7 @@ class BuyerServiceTest {
         buyerService.deleteById(1);
 
         //then
-        then(buyerRepository).should(times(2)).deleteById(1);
+        then(buyerRepositoryMock).should(times(2)).deleteById(1);
     }
 
     //Testing find by id service
@@ -57,15 +57,15 @@ class BuyerServiceTest {
     void findByIdTest() {
         //given
         Buyer buyer = new Buyer();
-        given(buyerRepository.findById(1)).willReturn(Optional.of(buyer));
+        given(buyerRepositoryMock.findById(1)).willReturn(Optional.of(buyer));
 
         //when
         Buyer foundBuyer = buyerService.findById(1);
 
         //then
         assertThat(foundBuyer).isNotNull();
-        then(buyerRepository).should().findById(anyInt());
-        then(buyerRepository).shouldHaveNoMoreInteractions();
+        then(buyerRepositoryMock).should().findById(anyInt());
+        then(buyerRepositoryMock).shouldHaveNoMoreInteractions();
     }
 
     //Testing save
@@ -73,29 +73,30 @@ class BuyerServiceTest {
     void saveTest() {
         //given
         Buyer buyer = new Buyer();
-        given(buyerRepository.save(any(Buyer.class))).willReturn(buyer);
+        given(buyerRepositoryMock.save(any(Buyer.class))).willReturn(buyer);
 
         //when
         Buyer savedBuyer = buyerService.save(new Buyer());
 
         //then
-        then(buyerRepository).should().save(any(Buyer.class));
+        then(buyerRepositoryMock).should().save(any(Buyer.class));
         assertThat(savedBuyer).isNotNull();
     }
 
+
     @Test
-    void findAllTest(){
+    void findAllTest() {
         //given
         Buyer buyer = new Buyer();
-        List<Buyer> buyers= new ArrayList<>();
+        List<Buyer> buyers = new ArrayList<>();
         buyers.add(buyer);
-        given(buyerRepository.findAll()).willReturn(buyers);
+        given(buyerRepositoryMock.findAll()).willReturn(buyers);
 
         //when
         List<Buyer> foundBuyers = buyerService.findAll();
 
         //then
-        then(buyerRepository).should().findAll();
+        then(buyerRepositoryMock).should().findAll();
         assertThat(foundBuyers).hasSize(1);
     }
 }

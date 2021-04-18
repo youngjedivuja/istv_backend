@@ -19,4 +19,6 @@ public class UserPersonEmployeeDTO {
 
     private String bank;
     private LocalDate employmentStartDate;
+
+
 }
