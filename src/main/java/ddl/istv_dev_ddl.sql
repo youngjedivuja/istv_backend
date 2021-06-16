@@ -1,4 +1,4 @@
--- we don't know how to generate root <with-no-name> (class Root) :(
+
 create table person
 (
 	person_id int auto_increment
