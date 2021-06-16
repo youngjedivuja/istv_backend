@@ -6,11 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.istv.dto.UserPersonEmployeeDTO;
 import rs.istv.entity.*;
+import rs.istv.security.annotation.role.RequireAdmin;
 import rs.istv.service.*;
 
 @RestController
 @RequestMapping("/employees")
 @RequiredArgsConstructor
+@RequireAdmin
 public class EmployeeController {
 	private final EmployeeService employeeService;
 

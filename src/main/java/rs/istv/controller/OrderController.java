@@ -8,11 +8,14 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import rs.istv.dto.OrderDTO;
 import rs.istv.entity.*;
+import rs.istv.security.annotation.PermitAll;
+import rs.istv.security.annotation.role.RequireBuyer;
 import rs.istv.service.*;
 
 @RestController
 @RequestMapping("/orders")
 @RequiredArgsConstructor
+@PermitAll
 public class OrderController {
     private final OrderService orderService;
 

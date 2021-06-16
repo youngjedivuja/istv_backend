@@ -5,11 +5,13 @@ import lombok.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.istv.entity.*;
+import rs.istv.security.annotation.role.RequireAdmin;
 import rs.istv.service.*;
 
 @RestController
 @RequestMapping("/products")
 @RequiredArgsConstructor
+@RequireAdmin
 public class ProductController {
 	private final ProductService productService;
 
