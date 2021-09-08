@@ -13,7 +13,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 @NoArgsConstructor
 @Table(name = "`order`")
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
-public  class Order extends Auditable {
+public  class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
@@ -28,7 +28,7 @@ public  class Order extends Auditable {
 	private String orderStatus;
 	@ToString.Exclude
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-	@LazyCollection(LazyCollectionOption.FALSE)
+	//@LazyCollection(LazyCollectionOption.FALSE)
 	@JsonIgnore
 	private List<OrderProduct> orderProducts;
 

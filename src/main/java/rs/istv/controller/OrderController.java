@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import rs.istv.dto.OrderDTO;
+import rs.istv.dto.OrderDTOForAndroid;
 import rs.istv.entity.*;
 import rs.istv.security.annotation.PermitAll;
 import rs.istv.security.annotation.role.RequireBuyer;
@@ -32,6 +33,11 @@ public class OrderController {
     @PostMapping("/saveOrderDTO")
     public ResponseEntity<Order> saveOrderDTO(@AuthenticationPrincipal User user, @RequestBody OrderDTO orderDTO) {
         return ResponseEntity.ok(orderService.saveOrderDTOForBuyer(user.getBuyerId(), orderDTO));
+    }
+
+    @PutMapping("/dto")
+    public ResponseEntity<Order> saveOrder( @RequestBody OrderDTOForAndroid orderDTO) {
+        return ResponseEntity.ok(orderService.saveOrderDTOAndroid( orderDTO));
     }
 
     @GetMapping("/{orderId}")

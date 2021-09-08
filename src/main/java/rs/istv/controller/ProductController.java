@@ -17,6 +17,7 @@ public class ProductController {
 
 	@GetMapping
 	public ResponseEntity<List<Product>> getAll() {
+		System.out.println(productService.findAll());
 		return ResponseEntity.ok(productService.findAll());
 	}
 
@@ -27,7 +28,8 @@ public class ProductController {
 
 	@PostMapping
 	public ResponseEntity<Product> save(@RequestBody Product product) {
-		return ResponseEntity.status(201).body(productService.save(product));
+		System.out.println(product);
+		return ResponseEntity.status(200).body(productService.save(product));
 	}
 
 	@PutMapping("/{productId}/toggle")

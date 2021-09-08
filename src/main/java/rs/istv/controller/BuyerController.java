@@ -17,6 +17,7 @@ public class BuyerController {
 
 	@GetMapping
 	public ResponseEntity<List<Buyer>> getAll() {
+		System.out.println("Poziva se");
 		return ResponseEntity.ok(buyerService.findAll());
 	}
 

@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @NoArgsConstructor
 @Table(name = "user")
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
-public class User extends Auditable implements UserDetails {
+public class User implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
@@ -67,7 +67,8 @@ public class User extends Auditable implements UserDetails {
 	@JsonIgnore
 	@Override
 	public boolean isEnabled() {
-		return getRecordStatus() == 1;
+		return true;
+		//return getRecordStatus() == 1;
 	}
 
 }

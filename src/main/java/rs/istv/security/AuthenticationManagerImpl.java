@@ -51,6 +51,7 @@ public class AuthenticationManagerImpl implements AuthenticationManager {
         if (password == null || !passwordEncoder.matches(password, user.getPassword()))
             throw new BadCredentialsException("Invalid username or password");
 
+
         return new UsernamePasswordAuthenticationToken(username, null, user.getAuthorities());
     }
 }

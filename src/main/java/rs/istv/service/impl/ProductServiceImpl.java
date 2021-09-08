@@ -44,7 +44,7 @@ public  class ProductServiceImpl implements ProductService {
 	@Override
 	public Product updateRecordStatus(Integer productId) {
 		Product product = findById(productId);
-		product.setRecordStatus(product.getRecordStatus() > 0 ? 0 : 1);
+		//product.setRecordStatus(product.getRecordStatus() > 0 ? 0 : 1);
 		return productRepository.save(product);
 	}
 

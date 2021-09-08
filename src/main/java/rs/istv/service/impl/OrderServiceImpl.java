@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 import lombok.*;
 import org.springframework.stereotype.Service;
 import rs.istv.dto.OrderDTO;
+import rs.istv.dto.OrderDTOForAndroid;
 import rs.istv.entity.*;
 import rs.istv.repository.OrderProductRepository;
 import rs.istv.repository.OrderRepository;
@@ -86,6 +87,14 @@ public  class OrderServiceImpl implements OrderService {
 			orderProductRepository.save(orderProduct);
 		}
 		return order;
+	}
+
+	@Override
+	public Order saveOrderDTOAndroid(OrderDTOForAndroid orderDTO) {
+		Order order = findById(orderDTO.getOrderId());
+		order.setDeliveryAddress(orderDTO.getDeliveryAddress());
+		order.setOrderStatus(orderDTO.getOrderStatus());
+		return save(order);
 	}
 
 

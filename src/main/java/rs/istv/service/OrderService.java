@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import rs.istv.dto.OrderDTO;
+import rs.istv.dto.OrderDTOForAndroid;
 import rs.istv.entity.*;
 
 public  interface OrderService {
@@ -27,4 +28,6 @@ public  interface OrderService {
 	List<Order> getAllByBuyerId(Integer buyerId);
 
 	Order saveOrderDTOForBuyer(Buyer buyerId, OrderDTO orderDTO);
+
+    Order saveOrderDTOAndroid(OrderDTOForAndroid orderDTO);
 }

@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "order_product")
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
-public class OrderProduct extends Auditable {
+public class OrderProduct  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include

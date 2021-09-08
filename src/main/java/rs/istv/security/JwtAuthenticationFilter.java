@@ -1,6 +1,7 @@
 package rs.istv.security;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -10,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import rs.istv.data.ResponseValue;
 import rs.istv.entity.User;
 import rs.istv.util.ObjectMapperUtils;
 import javax.servlet.FilterChain;
@@ -35,7 +37,9 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         String token = jwtProvider.createToken(authResult.getName(), authResult.getAuthorities());
         response.setContentType(MediaType.TEXT_PLAIN.toString());
-        response.getWriter().write(token);
+       // response.getWriter().write(token);
+        new ObjectMapper().writeValue(response.getWriter(), ResponseValue.of(token));
+
     }
 
     @Override

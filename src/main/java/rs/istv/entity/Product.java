@@ -11,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @Table(name = "product")
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
-public  class Product extends Auditable {
+public  class Product  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
